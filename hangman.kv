@@ -1,0 +1,338 @@
+#:import Factory kivy.factory.Factory
+
+<CardItem@RelativeLayout>
+    title: "title"
+    src: "src"
+    adaptive_height: True
+
+    MDCard:
+        pos_hint: {'center_x': .5}
+        size_hint: None, None
+        size: "200dp", "200dp"
+        adaptive_height: True
+        ripple_behavior: True
+        on_release: root.show_case_info()
+
+        BoxLayout:
+            orientation: 'vertical'
+            adaptive_height: True
+            Image:
+                id: src
+                source: root.src
+            MDLabel:
+                id: title
+                text: root.title
+                adaptive_size: True
+                color: "white"
+                pos: "12dp", "12dp"
+                bold: True
+                pos_hint: {"bottom": 1, "center_x": .5}
+
+<MySpinnerOption@SpinnerOption>:
+    background_color: "#ed2828"
+    color: (0.957, 0.890, 0.843, 1)
+    font_name: 'Chiller'
+    font_size: sp(18)
+
+<StartScreen>:
+    Image:
+        source: 'images/background2.png'
+        allow_stretch: True
+        keep_ratio: False
+    MDTopAppBar:
+        type: "small"
+        #size_hint_y: .2
+        pos_hint: {"center_x": .5, 'top': 1}
+        theme_bg_color: "Custom"
+        md_bg_color: (.051, .051, .047, .05)
+
+        MDTopAppBarLeadingButtonContainer:
+
+            MDActionTopAppBarButton:
+                icon: "information-outline"
+                on_release: root.show_info()
+
+        MDTopAppBarTitle:
+            text: "     "
+
+        MDTopAppBarTrailingButtonContainer:
+
+            MDActionTopAppBarButton:
+                icon: "folder-eye"
+                theme_text_color: "Custom"
+                text_color: 'red'
+                on_release: root.case_files()
+
+            MDActionTopAppBarButton:
+                icon: "police-badge"
+                theme_text_color: "Custom"
+                text_color: 'red'
+                on_release: root.show_rank()
+
+            MDActionTopAppBarButton:
+                icon: "cogs"
+                theme_text_color: "Custom"
+                text_color: 'red'
+                on_release: 
+                    app.root.current = "settings"
+                    root.manager.transition.direction = "up"
+
+        
+
+    BoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        padding: (40, 30)
+        adaptive_size: True
+        Label:
+            markup: True
+            text: 'Hangman\nNoose of Justice'
+            color: (1, 0, 0, 1)
+            size_hint_y: .2
+            halign: 'center'
+            font_size: sp(64)
+            font_name: 'Chiller'
+        Spinner:
+            id: category
+            text: "any"
+            size_hint: None, None
+            size: ('100dp', '50dp')
+            pos_hint: {"center_x": .5, "center_y": .5}
+            values: ["any", "serials", "femme fatales", "unsolved", "cult leaders", "assasinations", "historical heists", "cybercriminals"]
+            color: (0.957, 0.890, 0.843, 1)
+            background_color: "#ed2828"
+            font_name: 'Chiller'
+            font_size: sp(24)
+            option_cls: Factory.get("MySpinnerOption")
+            on_text: root.choose_category(category.text)
+        MDButton:
+            style: 'tonal'
+            pos_hint: {"center_x": .5, "center_y": .5}
+            on_release: 
+                app.root.current = "game"
+                root.manager.transition.direction = "left"
+            MDButtonText:
+                text: 'Start'
+                font_style: "Title"
+                theme_text_color: "Custom"
+                text_color: "red"
+                theme_font_name: "Custom"
+                font_name: 'Chiller'
+
+
+<SettingsScreen>:
+    FitImage:
+        source: 'images/background2.png'
+    MDIconButton:
+        icon: 'arrow-left-circle'
+        theme_shadow_color: "Custom"
+        shadow_color: "red"
+        pos_hint: {'top': 1}
+        on_release: 
+            app.root.current = "start"
+            root.manager.transition.direction = "down"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        pos_hint: {'center_x': .5, 'center_y': .5}
+        padding: (40, 40)
+        size_hint_y: .75
+        MDLabel:
+            text: "Settings"
+            font_style: 'Display'
+            role: 'large'
+            halign: 'center'
+            theme_font_name: "Custom"
+            font_name: 'Chiller'
+            size_hint_y: .25
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint: .4, .4
+            MDLabel:
+                text: "Music"
+                font_style: 'Headline'
+                role: 'large'
+                halign: 'center'
+                theme_font_name: "Custom"
+                font_name: 'Chiller'
+                size_hint_y: .25
+                pos_hint: {'left': 1, 'bottom': 1}
+            MDSwitch:
+                padding: (20, 20)
+                active: True
+                icon_active: "check"
+                on_active: root.music_on_off()
+        MDBoxLayout:
+            orientation: "horizontal"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint: .4, .4
+            MDLabel: 
+                text: "Zen Mode"
+                font_style: 'Headline'
+                role: 'large'
+                halign: 'center'
+                theme_font_name: "Custom"
+                font_name: 'Chiller'
+                size_hint_y: .25
+                pos_hint: {'left': 1, 'bottom': 1}
+            MDSwitch:
+                id: zen_mode
+                active: False
+                icon_active: "check"
+        MDBoxLayout:
+            orientation: "horizontal"
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            size_hint: .4, .4
+            MDLabel: 
+                text: "Difficulty"
+                font_style: 'Headline'
+                role: 'large'
+                halign: 'center'
+                theme_font_name: "Custom"
+                font_name: 'Chiller'
+                size_hint_y: .25
+                pos_hint: {'left': 1, 'bottom': 1}
+            Spinner:
+                id: difficulty
+                text: 'Choose level'
+                size_hint: None, None
+                size: ('100dp', '50dp')
+                values: ["easy", "medium", "hard"]
+                color: (0.957, 0.890, 0.843, 1)
+                background_color: "#ed2828"
+                font_name: 'Chiller'
+                font_size: sp(24)
+                option_cls: Factory.get("MySpinnerOption")
+                on_text: root.choose_difficulty(difficulty.text)
+
+
+<CaseFilesScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        MDTopAppBar:
+            type: "small"
+            pos_hint: {"center_x": .5, 'top': 1}
+            theme_bg_color: "Custom"
+            md_bg_color: (.051, .051, .047, .05)
+
+            MDTopAppBarLeadingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "arrow-left"
+                    on_release: app.root.current = "start"
+
+            MDTopAppBarTitle:
+                text: "Case Files"
+
+            MDTopAppBarTrailingButtonContainer:
+
+                MDActionTopAppBarButton:
+                    icon: "filter"
+                    theme_text_color: "Custom"
+                    text_color: 'red'
+                    on_release: print("Pressed")
+        MDScrollView:
+            do_scroll_y: True  
+            do_scroll_x: False
+            MDGridLayout:
+                id: grid
+                adaptive_height: True
+                cols: 4
+                padding: 20, 20
+                spacing: 10
+            
+
+<GameScreen>:
+    word: word
+    score: score
+    time_label: time_label
+    quit: quit
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+        pos_hint_x: {'center_x': .5}
+        MDBoxLayout:
+            size_hint_y: .2
+            orientation: 'horizontal'
+            spacing: 20
+            MDButton:
+                id: quit
+                type: 'tonal'
+                on_release: 
+                    #app.root.current = "start"
+                    root.on_quit_pressed()
+                    root.manager.transition.direction = "right"
+                pos_hint: {'left':1, 'top': 1}
+                size_hint: (.1, .1)
+                MDButtonText:
+                    text: 'Quit'
+                MDButtonIcon:
+                    icon: 'arrow-left-circle'
+                
+            MDLabel:
+                id: time_label
+                markup: True
+                text: ''
+                halign: 'center'
+                padding_y: 10
+                pos_hint: {'top': 1}
+                size_hint_y: .1
+                font_style: 'Headline'
+                role: 'medium'
+                theme_font_name: "Custom"
+                font_name: 'Chiller'
+            MDLabel:
+                id: score
+                text: 'Score:\n0'
+                halign: 'center'
+                padding: (20, 20)
+                pos_hint: {'left':0, 'top': 1}
+                font_style: 'Headline'
+                role: 'medium'
+                theme_font_name: "Custom"
+                font_name: 'Chiller'
+                size_hint: (.2, .2)
+
+    MDBoxLayout:
+        size_hint_y: .8
+        orientation: 'vertical'
+        spacing: 20
+        Image:
+            id: error
+            size_hint_y: .5
+            pos_hint: {"bottom": 1}
+            #fit_mode: 'contain'
+            source: 'images/img0.png'
+        MDLabel:
+            id: hint
+            text: ''
+            halign: 'center'
+            valign: 'bottom'
+            font_style: 'Headline'
+            role: 'large'
+            size_hint_y: .1
+            theme_font_name: "Custom"
+            font_name: 'Chiller'
+            theme_text_color: "Custom"
+            text_color: "red"
+        MDIconButton:
+            id: button
+            icon: "lightbulb"
+            pos_hint: {"right": 1, "bottom": 1}
+            size_hint: (.1, .1)
+            on_release: 
+                app.root.current = root.menu_open()
+        MDLabel:
+            id: word
+            text: root.start_game()
+            halign: 'center'
+            font_style: 'Headline'
+            role: 'large'
+            theme_font_name: "Custom"
+            font_name: 'Chiller'
+            size_hint_y: .1
+        ButtonsLayout:
+            id: buttons_layout
