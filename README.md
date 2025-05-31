@@ -2,7 +2,6 @@
 
 Now available on itch.io!
 
-
  <a href="https://eloliver.itch.io/hangman-noose-of-justice">Hangman: Noose of Justice by eloliver</a>
 
 
