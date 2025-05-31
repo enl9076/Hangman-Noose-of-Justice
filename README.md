@@ -3,9 +3,7 @@
 Now available on itch.io!
 
 
-<iframe frameborder="0" src="https://itch.io/embed/3603716" width="552" height="167">
-  <a href="https://eloliver.itch.io/hangman-noose-of-justice">Hangman: Noose of Justice by eloliver</a>
-</iframe>
+ <a href="https://eloliver.itch.io/hangman-noose-of-justice">Hangman: Noose of Justice by eloliver</a>
 
 
 
