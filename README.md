@@ -1,4 +1,4 @@
-# 🔪 Hangman: Noose of Justice
+# Hangman: Noose of Justice
 
 ![Platform](https://img.shields.io/badge/platform-Android-black)
 ![Built With](https://img.shields.io/badge/built%20with-Kivy-ff69b4)
