@@ -22,7 +22,7 @@ Uncover the names of real-life criminals, learn their dark stories, and test you
 
 | Menu | Gameplay | Case Reveal |
 |------|----------|-------------|
-| ![Main Menu](screenshots/menu.jpg) | ![Gameplay](screenshots/gameplay.jpg) | ![Case](screenshots/casereveal.jpg) |
+| ![Main Menu](screenshots/mainmenu.jpg) | ![Gameplay](screenshots/game.jpg) | ![Case](screenshots/casereveal.jpg) |
 
 > 💡 Want a feel for the gameplay? [Check out the trailer here.](#)
 
@@ -31,7 +31,7 @@ Uncover the names of real-life criminals, learn their dark stories, and test you
 ## 📦 Installation
 
 **Android (Play Store):**  
-[▶ Download on Google Play](https://play.google.com/store/apps/details?id=com.yourpackage.nooseofjustice)
+[▶ Download on Google Play]([https://play.google.com/store/apps/details?id=com.yourpackage.nooseofjustice](https://play.google.com/store/apps/details?id=hangman.game.hangman))
 
 OR
 
