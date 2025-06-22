@@ -31,7 +31,7 @@ Uncover the names of real-life criminals, learn their dark stories, and test you
 ## 📦 Installation
 
 **Android (Play Store):**  
-[▶ Download on Google Play](https://play.google.com/store/apps/details?id=com.yourpackage.nooseofjustice](https://play.google.com/store/apps/details?id=hangman.game.hangman)
+[▶ Download on Google Play](https://play.google.com/store/apps/details?id=hangman.game.hangman)
 
 OR
 
