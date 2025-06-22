@@ -31,11 +31,19 @@ Uncover the names of real-life criminals, learn their dark stories, and test you
 ## 📦 Installation
 
 **Android (Play Store):**  
-[▶ Download on Google Play](https://play.google.com/store/apps/details?id=com.yourpackage.nooseofjustice) *(Replace with your actual link)*
+[▶ Download on Google Play](https://play.google.com/store/apps/details?id=com.yourpackage.nooseofjustice)
 
-## Contributing
+OR
+
+[Download for Windows from Itch.io](https://eloliver.itch.io/hangman-noose-of-justice)
+
+---
+
+## 🙌 Contributing
 Pull requests welcome!
+
 Feel free to suggest new case categories, difficulty modes, or localization ideas.
+
 
 If you like the game and want more content added, please consider supporting me so I can keep improving it!
 
